@@ -1,7 +1,7 @@
 require 'webrick'
 srv = WEBrick::HTTPServer.new({
     :DocumentRoot => './',
-    :BindAddress => '127.0.0.1',
+    :BindAddress => '0.0.0.0',
     :Port => 2000
 })
 srv.mount('/test', WEBrick::HTTPServlet::FileHandler, 'test.html')
