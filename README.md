@@ -5,6 +5,9 @@
 ## Overview
 情報理工学実験のHCI研究室の担当するruby演習のTA向け環境
 
+## Important
+dockerで環境を構築した関係上、**一部の記述を書き換えたり、応用課題で完全に環境が再現できていないので**、close済みも含めてissueを一度確認してください。
+
 ## Requirement
 - Docker Desktop https://www.docker.com/products/docker-desktop/
 
