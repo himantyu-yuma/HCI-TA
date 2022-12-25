@@ -6,14 +6,14 @@ cgi.out("type" => "text/html",
     iter = cgi["num"].to_i
     html = "<html><body>"
     iter.times do |i|
-        if i%3==0 and i%5==0
+        if (i+1)%3==0 and (i+1)%5==0
             html = html + "<p>FizzBuzz</p>"
-        elsif i%3==0
+        elsif (i+1)%3==0
             html = html + "<p>Fizz</p>"
-        elsif i%5==0
+        elsif (i+1)%5==0
             html = html + "<p>Buzz</p>"
         else
-            html = html + "<p>#{i}</p>"
+            html = html + "<p>#{i+1}</p>"
         end
     end
     html = html + "</body></html>"
