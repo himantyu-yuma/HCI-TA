@@ -5,4 +5,5 @@ WORKDIR /app
 
 RUN apt-get update
 RUN apt-get install sqlite3
-RUN bundle install -j4
+RUN gem install sqlite3
+RUN gem install activerecord
