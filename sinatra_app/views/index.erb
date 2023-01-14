@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title><%= @title %></title>
+    </head>
+    <body>
+        <h1>Hello, <%=@world%> </h1>
+        <table>
+            <tr>
+                <td>student_id</td>
+                <td>name</td>
+            </tr>
+            <form method="post" action="judge">
+                <tr>
+                    <td><input type="text" name="student_id"></td>
+                    <td><input type="text" name="name"></td>
+                    <td><input type="submit" value="ログイン"></td>
+                </tr>
+            </form>
+        </table>
+    </body>
+</html>
