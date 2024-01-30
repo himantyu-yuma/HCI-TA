@@ -16,7 +16,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.rbenv
-    run: gem install sqlite3 && gem install activerecord
     ports:
       - 4567:4567
       - 2000:2000
@@ -32,6 +31,9 @@ services:
       - type: bind
         source: ./test
         target: /app/src
+      - type: bind
+        source: /tmp/.X11-unix
+        target: /tmp/.X11-unix
     ports:
       - 8888:8000
     environment:

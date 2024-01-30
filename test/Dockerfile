@@ -1,18 +1,5 @@
-FROM python:3.11.3-slim-bullseye
+FROM mcr.microsoft.com/playwright/python:v1.41.0-jammy
 
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
-    curl \
-    build-essential \
-    git \
-    cmake
-
-RUN curl -sSL https://install.python-poetry.org | python -
-
-ENV PATH $PATH:/root/.local/bin/
-
-# packages install
 WORKDIR /app/src
 
-COPY ./pyproject.toml /app/src/pyproject.toml
-RUN poetry install
+RUN pip install pytest-playwright playwright
