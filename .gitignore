@@ -3,3 +3,5 @@ vendor/
 assignments/**/students/
 grades.csv
 readable_grades.csv
+
+*.zip
