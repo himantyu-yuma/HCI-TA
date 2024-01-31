@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+COPY Gemfile /app/src/Gemfile
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git curl autoconf bison build-essential libssl-dev \
@@ -9,6 +11,8 @@ RUN apt-get update && \
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
+WORKDIR /app/src
+
 RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
     echo 'eval "$(rbenv init -)"' >> ~/.bashrc && \
     echo 'export PATH' >> ~/.bashrc && \
@@ -16,9 +20,10 @@ RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
     rbenv install 2.7.6 --verbose && \
     rbenv global 2.7.6 && \
     rbenv rehash && \
-    gem install sqlite3 -v 1.4.2 && \
-    gem install activerecord
+    # gem install sqlite3 -v 1.4.2 && \
+    # gem install activerecord
+    bundle install --path=vendor/bundle
 
 ENV PATH /root/.rbenv/shims:/root/.rbenv/bin:/usr/local/sbin::$PATH
 
-WORKDIR /app/src
+ENV RUBYOPT -EUTF-8

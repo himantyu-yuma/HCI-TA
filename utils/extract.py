@@ -22,4 +22,4 @@ def unzip_recursively(path):
 
 if __name__ == '__main__':
     current_dir = Path(__file__).parent
-    unzip_recursively(current_dir / '../assignments/day4')
+    unzip_recursively(current_dir / '../assignments/day6')

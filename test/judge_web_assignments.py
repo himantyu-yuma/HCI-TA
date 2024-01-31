@@ -14,7 +14,7 @@ kadai_map = {
 
 def get_assignments():
     current_dir = pathlib.Path(__file__).parent
-    assignments_dir = current_dir / '../assignments/day4/students/'
+    assignments_dir = current_dir / f'../assignments/{day}/students/'
     assignments = [x for x in assignments_dir.iterdir() if x.is_dir()]
     return assignments
 
@@ -60,17 +60,17 @@ class BrowserTest:
     def execute(self):
         page = self.page
         page.goto(f"http://localhost:2000/{self.path}")
-        sleep(1)
-        # ここから処理を書く
-        page.locator("input[name=\"user\"]").click()
-        sleep(0.5)
-        page.locator("input[name=\"user\"]").fill("root")
-        sleep(0.5)
-        page.locator("input[name=\"password\"]").click()
-        sleep(0.5)
-        page.locator("input[name=\"password\"]").fill("admin")
-        sleep(0.5)
-        page.get_by_role("button", name="Submit").click()
+        # sleep(1)
+        # # ここから処理を書く
+        # page.locator("input[name=\"user\"]").click()
+        # sleep(0.5)
+        # page.locator("input[name=\"user\"]").fill("root")
+        # sleep(0.5)
+        # page.locator("input[name=\"password\"]").click()
+        # sleep(0.5)
+        # page.locator("input[name=\"password\"]").fill("admin")
+        # sleep(0.5)
+        # page.get_by_role("button", name="Submit").click()
         # ここまで
 
     def close(self):
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', '--assignment', help='課題ファイル名')
     parser.add_argument('-c', '--container', help='コンテナ名')
-    parser.add_argument('-p', '--path', help='アクセスするパス')
+    parser.add_argument('-p', '--path', help='アクセスするパス', default="")
     args = parser.parse_args()
     # print(args.assignment)
     assignments = get_assignments()
