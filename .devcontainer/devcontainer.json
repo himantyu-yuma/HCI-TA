@@ -1,0 +1,16 @@
+{
+  "name": "hci-ta",
+  "dockerComposeFile": ["../compose.yml"],
+  "service": "web",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp",
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+      }
+    }
+  },
+  "workspaceFolder": "/app"
+}

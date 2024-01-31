@@ -1,0 +1,43 @@
+version: '3'
+services:
+  vanilla:
+    build: 
+      context: .
+      dockerfile: Dockerfile.vanilla
+    ports:
+      - 4567:4567
+      - 2000:2000
+    volumes:
+      - type: bind
+        source: ./
+        target: /app/src
+    tty: true
+  rbenv:
+    build: 
+      context: .
+      dockerfile: Dockerfile.rbenv
+    ports:
+      - 4567:4567
+      - 2000:2000
+    volumes:
+      - type: bind
+        source: ./
+        target: /app/src
+    tty: true
+  test:
+    build:
+      context: ./test
+    volumes:
+      - type: bind
+        source: ./test
+        target: /app/src
+      - type: bind
+        source: /tmp/.X11-unix
+        target: /tmp/.X11-unix
+    ports:
+      - 8888:8000
+    environment:
+      - PYTHONPATH=/app/src/
+    restart: always
+    stdin_open: true
+    tty: true

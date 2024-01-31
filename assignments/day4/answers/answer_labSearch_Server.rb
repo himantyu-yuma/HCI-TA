@@ -1,3 +1,4 @@
+#!/usr/local/bin/ruby
 require 'webrick'
 require 'sqlite3'
 CGI_PATH = '/usr/local/bin/ruby'
